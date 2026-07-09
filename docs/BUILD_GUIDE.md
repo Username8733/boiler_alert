@@ -29,3 +29,4 @@
 2. Läs av nivån när pannans LED lyser.
 3. Ställ `LED Threshold` mellan dessa två värden.
 4. Testa att röd LED på boxen speglar pannlampan.
+5. Testa summern med `Boiler Monitor Test Buzzer`.

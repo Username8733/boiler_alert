@@ -2,6 +2,25 @@ esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
   comment: "Optical boiler alarm monitor"
+  project:
+    name: username8733.esphome-boiler-monitor
+    version: ${firmware_version}
+  on_boot:
+    priority: -100
+    then:
+      # Enkel självtest: röd LED, grön LED och kort summerpuls.
+      - output.turn_on: red_led_output
+      - output.turn_on: green_led_output
+      - if:
+          condition:
+            switch.is_on: buzzer_enabled
+          then:
+            - output.turn_on: buzzer_output
+            - delay: 120ms
+            - output.turn_off: buzzer_output
+      - delay: 350ms
+      - output.turn_off: red_led_output
+      - output.turn_on: green_led_output
 
 esp32:
   board: esp32dev
@@ -11,6 +30,7 @@ esp32:
 logger:
 
 api:
+  reboot_timeout: 15min
 
 ota:
   platform: esphome

@@ -23,3 +23,15 @@ number:
     step: 0.05
     unit_of_measurement: "V"
     mode: slider
+
+  - platform: template
+    id: alarm_clear_delay_seconds
+    name: "${friendly_name} Alarm Clear Delay"
+    optimistic: true
+    restore_value: true
+    initial_value: 0
+    min_value: 0
+    max_value: 600
+    step: 10
+    unit_of_measurement: "s"
+    mode: box

@@ -11,9 +11,16 @@ Exempel:
 
 Bra tröskelvärde: cirka 0.70 V.
 
-Om värdena ligger för nära varandra:
+## Rekommenderad process
 
-- gör sensortuben längre,
-- minska infall från omgivningsljus,
-- flytta sensorn närmare indikatorn,
-- testa annat motståndsvärde än 1 MΩ.
+1. Sätt `LED Threshold` lågt, exempelvis 0.20 V.
+2. Kontrollera att `Boiler LED Detected` inte är aktiv när pannlampan är släckt.
+3. Höj eller sänk tröskeln tills det finns marginal.
+4. Tänd pannlampan eller testa med röd LED/ficklampa.
+5. Kontrollera att röd LED på boxen speglar signalen.
+
+## Automatisk återställning
+
+`Alarm Clear Delay` är normalt 0 s, vilket betyder att larmat läge ligger kvar tills du återställer manuellt.
+
+Sätter du exempelvis 300 s återställs larmat läge automatiskt om pannlampan varit släckt i fem minuter.

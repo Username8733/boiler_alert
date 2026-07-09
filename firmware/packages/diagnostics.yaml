@@ -1,19 +1,31 @@
 text_sensor:
+  - platform: template
+    name: "${friendly_name} Firmware Version"
+    icon: mdi:tag
+    entity_category: diagnostic
+    lambda: |-
+      return std::string("${firmware_version}");
+
   - platform: wifi_info
     ip_address:
       name: "${friendly_name} IP Address"
+      entity_category: diagnostic
     ssid:
       name: "${friendly_name} Connected SSID"
+      entity_category: diagnostic
 
 sensor:
   - platform: wifi_signal
     name: "${friendly_name} WiFi Signal"
     update_interval: 60s
+    entity_category: diagnostic
 
   - platform: uptime
     name: "${friendly_name} Uptime"
     update_interval: 60s
+    entity_category: diagnostic
 
 button:
   - platform: restart
     name: "${friendly_name} Restart"
+    entity_category: diagnostic

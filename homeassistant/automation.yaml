@@ -1,18 +1,34 @@
-alias: Boiler Monitor - Notify
-description: Skickar notis när pannans larmlampa upptäcks.
-mode: single
-trigger:
-  - platform: state
-    entity_id: binary_sensor.boiler_monitor_alarm
-    to: "on"
-    for:
-      milliseconds: 300
-action:
-  - service: notify.mobile_app_DIN_TELEFON
-    data:
-      title: "Pannlarm"
-      message: "Värmepannans röda larmlampa är aktiv."
-  - service: persistent_notification.create
-    data:
-      title: "Pannlarm"
-      message: "Boiler Monitor har upptäckt att pannans röda larmlampa är aktiv."
+# Importera eller kopiera dessa automationer till Home Assistant.
+# Byt notify.mobile_app_DIN_TELEFON till din faktiska notify-tjänst.
+
+- alias: Boiler Monitor - Alarm Notification
+  id: boiler_monitor_alarm_notification
+  description: Skickar notis när pannans larmlampa upptäcks.
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.boiler_monitor_alarm
+      to: "on"
+  action:
+    - service: notify.mobile_app_DIN_TELEFON
+      data:
+        title: "Pannlarm"
+        message: "Värmepannans röda larmlampa är aktiv."
+    - service: persistent_notification.create
+      data:
+        title: "Pannlarm"
+        message: "Boiler Monitor har upptäckt att pannans röda larmlampa är aktiv."
+
+- alias: Boiler Monitor - Buzzer Muted Notification
+  id: boiler_monitor_buzzer_muted_notification
+  description: Skapar en loggnotis när summern tystas.
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.boiler_monitor_buzzer_muted
+      to: "on"
+  action:
+    - service: logbook.log
+      data:
+        name: "Boiler Monitor"
+        message: "Summer kvitterad."

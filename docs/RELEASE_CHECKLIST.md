@@ -12,12 +12,9 @@
 
 ## Skapa release
 
-1. Skapa tagg, exempel:
-
 ```bash
-git tag v0.2.0
-git push origin v0.2.0
+git tag v0.3.0
+git push origin v0.3.0
 ```
 
-2. Skapa GitHub Release.
-3. Bifoga ZIP med projektfiler om önskat.
+Skapa sedan GitHub Release och bifoga ZIP om önskat.

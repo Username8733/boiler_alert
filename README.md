@@ -13,7 +13,7 @@ Projektet är byggt för ett enkelt och robust scenario: pannans röda LED lyser
 - Tyst-knapp på enheten
 - Kvitteringsknapp från Home Assistant
 - Grön driftindikering
-- Diagnostik: WiFi-signal, uptime, IP-adress och rå ljusnivå
+- Diagnostik: WiFi-signal, uptime, IP-adress, firmwareversion och rå ljusnivå
 - Home Assistant-automation och enkel dashboard
 - OpenSCAD-filer för 3D-printbar kapsling och sensorhållare
 
@@ -49,6 +49,13 @@ Projektet är byggt för ett enkelt och robust scenario: pannans röda LED lyser
 5. Lägg till enheten i Home Assistant.
 6. Justera `LED Threshold` tills `Boiler Monitor Alarm` bara aktiveras när pannans röda LED lyser.
 
+## Beteende
+
+- Röd LED på enheten följer pannans LED.
+- Summern börjar pipa om pannlampan varit aktiv i minst 300 ms.
+- Summern fortsätter tills du trycker på Tyst eller kvitterar från Home Assistant.
+- Om pannlampan slocknar återställs inte larmet automatiskt; det finns en separat reset-knapp i Home Assistant.
+
 ## Mappstruktur
 
 ```text
@@ -61,7 +68,7 @@ docs/             Byggguide, kalibrering och felsökning
 
 ## Status
 
-Detta är v0.2.0: prototypvänlig version för experimentkort. Ingen PCB-version ännu.
+Detta är v0.3.0: firmwarefokuserad version för experimentkort. Ingen PCB-version ännu.
 
 ## Licens
 
