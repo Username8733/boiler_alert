@@ -2,11 +2,9 @@ output:
   - platform: gpio
     pin: GPIO18
     id: buzzer_output
-
   - platform: gpio
     pin: GPIO19
     id: red_led_output
-
   - platform: gpio
     pin: GPIO21
     id: green_led_output

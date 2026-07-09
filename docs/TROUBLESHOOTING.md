@@ -1,20 +1,20 @@
 # Felsökning
 
-## Röd LED på boxen lyser hela tiden
+## Röd LED lyser alltid
 
-- Tröskelvärdet är för lågt.
-- Sensorn tar in omgivningsljus.
+- Tröskeln är för låg.
+- Sensorn får omgivningsljus.
 - Fototransistorn kan vara felvänd.
 
 ## Röd LED reagerar inte
 
-- Tröskelvärdet är för högt.
-- Sensorn är inte riktad mot pannlampan.
+- Tröskeln är för hög.
+- IO34 är felkopplad.
+- Sensor saknar 3V3/GND.
 - Fototransistorn kan vara felvänd.
-- Kontrollera GPIO34 och GND/3V3.
 
 ## Summern låter inte
 
-- Kontrollera att `Boiler Monitor Buzzer Enabled` är på.
-- Testa med `Boiler Monitor Test Buzzer`.
-- Kontrollera 2N7000-orientering.
+- Kontrollera 2N7000-pinout.
+- Kontrollera att Buzzer Enabled är på.
+- Kör Test Buzzer.

@@ -1,18 +1,12 @@
-Qty,Part,Value / Type,Notes,Preferred store/search
-1,ESP32 DevKit,ESP32-WROOM-32,ESPHome controller,Electrokit: ESP32 UNO / ESP32 DevKit
-1,Phototransistor,BPW40 or BPW77,Optical sensor in tube,"Electrokit if available, otherwise Elfa/Mouser"
-1,MOSFET,2N7000,Buzzer low-side switch,Electrokit: 2N7000
-1,Active buzzer,5 V active buzzer,Driven via 2N7000,Electrokit: aktiv summer 5V
-1,LED,5 mm red,Mirrors boiler LED,Electrokit
-1,LED,5 mm green,Power/status,Electrokit
-2,Resistor,330 Ω,LED current limit,Electrokit
-1,Resistor,220 Ω,MOSFET gate resistor,Electrokit
-1,Resistor,100 kΩ,MOSFET gate pulldown,Electrokit
-1,Resistor,1 MΩ,Phototransistor resistor,Electrokit
-1,Capacitor,100 nF ceramic,Optional sensor/input noise filtering,Electrokit
-1,Pushbutton,NO momentary,Mute button,Electrokit
-1,Breadboard,Full-size recommended,Prototype before soldering,Electrokit
-1,Perfboard,2.54 mm,Prototype board,Electrokit
-1,Enclosure,~100 x 60 x 30 mm,3D print or ABS box,3D print / Electrokit
-1,Cable,2-wire thin cable,Sensor probe cable,Electrokit
-1,Heat shrink,Black 6-8 mm,Sensor tube/light shield,Electrokit
+Qty,Part,Value,Notes
+1,ESP32 D1 R32 / ESP32 UNO,,Controller
+1,Phototransistor,BPW40/BPW77,Sensor
+1,MOSFET,2N7000,Buzzer driver
+1,Active buzzer,5V,Alarm
+1,Red LED,5mm,Mirror LED
+1,Green LED,5mm,Status LED
+2,Resistor,330 ohm,LED
+1,Resistor,220 ohm,Gate
+1,Resistor,100k ohm,Pulldown
+1,Resistor,1M ohm,Sensor
+1,Button,NO,Mute
