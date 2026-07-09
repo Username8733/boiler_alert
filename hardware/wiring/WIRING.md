@@ -37,6 +37,8 @@ GPIO21 ── 330Ω ── Grön LED ── GND
 GPIO22 ── Tryckknapp ── GND
 ```
 
+GPIO22 använder `INPUT_PULLUP` och är inverterad i ESPHome.
+
 ## Fototransistor
 
 Rekommenderad startpunkt:
@@ -45,4 +47,4 @@ Rekommenderad startpunkt:
 3V3 ── 1MΩ ── ADC GPIO34 ── Fototransistor ── GND
 ```
 
-Om signalen blir inverterad kan jämförelsen i ESPHome ändras.
+Beroende på fototransistorns orientering kan signalen bli inverterad. Om signalen går åt fel håll, vänd fototransistorn eller ändra jämförelsen i ESPHome.

@@ -1,20 +1,20 @@
 type: vertical-stack
 cards:
   - type: entities
-    title: Boiler Alert
+    title: Boiler Monitor
     entities:
-      - entity: binary_sensor.boiler_alert_alarm
+      - entity: binary_sensor.boiler_monitor_alarm
         name: Pannlarm
-      - entity: sensor.boiler_alert_led_level
+      - entity: sensor.boiler_monitor_led_level
         name: LED-nivå
-      - entity: number.boiler_alert_led_threshold
+      - entity: number.boiler_monitor_led_threshold
         name: Tröskelvärde
-      - entity: button.boiler_alert_acknowledge_alarm
+      - entity: button.boiler_monitor_acknowledge_alarm
         name: Tysta summer
-      - entity: button.boiler_alert_reset_latched_alarm
+      - entity: button.boiler_monitor_reset_latched_alarm
         name: Återställ larmat läge
   - type: history-graph
     title: LED-nivå
     entities:
-      - sensor.boiler_alert_led_level
+      - sensor.boiler_monitor_led_level
     hours_to_show: 6

@@ -7,4 +7,4 @@
 <rect class="green" x="850" y="365" width="250" height="95" rx="16"/><text class="txt" x="895" y="405">Green LED</text><text class="small" x="900" y="435">Status / power</text><line class="line" x1="760" y1="335" x2="850" y2="410"/>
 <rect class="box" x="850" y="120" width="250" height="95" rx="16"/><text class="txt" x="905" y="160">Buzzer</text><text class="small" x="875" y="190">via 2N7000 MOSFET</text><line class="line" x1="760" y1="235" x2="850" y2="170"/>
 <rect class="box" x="850" y="500" width="250" height="95" rx="16"/><text class="txt" x="900" y="540">Mute button</text><text class="small" x="880" y="570">GPIO22 to GND</text><line class="line" x1="760" y1="385" x2="850" y2="550"/>
-<text class="txt" x="335" y="670">Boiler Alert wiring overview</text></svg>
+<text class="txt" x="335" y="670">ESPHome Boiler Monitor wiring overview</text></svg>

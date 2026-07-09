@@ -1,7 +1,19 @@
 # Kalibrering
 
-1. Notera `Boiler Alert LED Level` när pannlampan är släckt.
-2. Notera värdet när pannlampan lyser.
-3. Sätt `LED Threshold` mellan värdena.
+Målet är att hitta ett tröskelvärde där sensorn tydligt skiljer mellan släckt och tänd pann-LED.
 
-Exempel: släckt 0.10 V, tänd 1.45 V → tröskel cirka 0.70 V.
+Exempel:
+
+| Läge | LED Level |
+|---|---:|
+| Släckt | 0.10 V |
+| Tänd | 1.45 V |
+
+Bra tröskelvärde: cirka 0.70 V.
+
+Om värdena ligger för nära varandra:
+
+- gör sensortuben längre,
+- minska infall från omgivningsljus,
+- flytta sensorn närmare indikatorn,
+- testa annat motståndsvärde än 1 MΩ.

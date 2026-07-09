@@ -35,9 +35,10 @@ binary_sensor:
 
     on_release:
       then:
-        - logger.log: "Boiler alarm optical signal cleared."
+        - logger.log: "Boiler optical alarm signal cleared."
 
 interval:
+  # Red LED mirrors the boiler LED 1:1.
   - interval: 100ms
     then:
       - if:
@@ -48,10 +49,12 @@ interval:
           else:
             - output.turn_off: red_led_output
 
+  # Green LED indicates that firmware is running.
   - interval: 2s
     then:
       - output.turn_on: green_led_output
 
+  # Buzzer beeps 0.5 s on / 0.5 s off until acknowledged.
   - interval: 500ms
     then:
       - if:
