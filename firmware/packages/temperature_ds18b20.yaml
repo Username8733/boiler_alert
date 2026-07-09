@@ -1,0 +1,11 @@
+one_wire:
+  - platform: gpio
+    pin: GPIO23
+    id: one_wire_bus
+
+sensor:
+  - platform: dallas_temp
+    name: "${friendly_name} Temperature"
+    id: boiler_temperature
+    update_interval: 30s
+    accuracy_decimals: 1

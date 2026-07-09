@@ -1,11 +1,6 @@
 Qty,Part,Value,Notes
-1,ESP32 D1 R32,ESP32 UNO,Controller
+1,DS18B20,1-wire,Temperature
+1,Resistor,4.7k,DS18B20 pull-up
+1,ESP32 D1 R32 / ESP32 UNO,,Controller
 1,Phototransistor,BPW40/BPW77,Sensor
-1,MOSFET,2N7000,Buzzer driver
-1,Active buzzer,5V,Alarm
-1,Red LED,5mm,Mirror
-1,Green LED,5mm,Status
-2,Resistor,330 ohm,LED
-1,Resistor,220 ohm,Gate
-1,Resistor,100k ohm,Gate pulldown
-1,Resistor,1M ohm,Sensor pull-up
+1,2N7000,,Buzzer driver

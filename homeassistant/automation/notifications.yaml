@@ -1,0 +1,14 @@
+- alias: Boiler Monitor - Alarm Notification
+  id: boiler_monitor_alarm_notification
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.boiler_monitor_alarm
+      to: "on"
+  action:
+    - service: notify.mobile_app_DIN_TELEFON
+      data:
+        title: "Pannlarm"
+        message: >
+          Värmepannans röda larmlampa är aktiv.
+          Senaste larm: {{ states('text_sensor.boiler_monitor_last_alarm') }}

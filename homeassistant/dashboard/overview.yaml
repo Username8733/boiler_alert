@@ -1,0 +1,21 @@
+type: vertical-stack
+cards:
+  - type: entities
+    title: Boiler Monitor
+    entities:
+      - entity: binary_sensor.boiler_monitor_alarm
+        name: Larmat läge
+      - entity: text_sensor.boiler_monitor_last_alarm
+        name: Senaste larm
+      - entity: binary_sensor.boiler_monitor_boiler_led_detected
+        name: Pannans LED detekterad
+      - entity: sensor.boiler_monitor_led_level
+        name: LED-nivå
+      - entity: number.boiler_monitor_led_threshold
+        name: Tröskelvärde
+      - entity: sensor.boiler_monitor_temperature
+        name: Temperatur
+      - entity: button.boiler_monitor_acknowledge_alarm
+        name: Tysta summer
+      - entity: button.boiler_monitor_reset_latched_alarm
+        name: Återställ larmat läge
