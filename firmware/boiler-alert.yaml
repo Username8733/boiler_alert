@@ -1,0 +1,11 @@
+substitutions:
+  device_name: boiler-alert
+  friendly_name: Boiler Alert
+
+packages:
+  base: !include packages/base.yaml
+  diagnostics: !include packages/diagnostics.yaml
+  sensor: !include packages/sensor.yaml
+  outputs: !include packages/outputs.yaml
+  alarm_logic: !include packages/alarm_logic.yaml
+  buttons: !include packages/buttons.yaml

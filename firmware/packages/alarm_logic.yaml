@@ -1,0 +1,75 @@
+globals:
+  - id: alarm_latched
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+
+  - id: alarm_muted
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+
+  - id: buzzer_phase
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+
+binary_sensor:
+  - platform: template
+    id: boiler_alarm
+    name: "${friendly_name} Alarm"
+    device_class: problem
+    lambda: |-
+      return id(boiler_led_level).state > id(boiler_led_threshold).state;
+
+    on_press:
+      then:
+        - delay: 300ms
+        - if:
+            condition:
+              binary_sensor.is_on: boiler_alarm
+            then:
+              - lambda: |-
+                  id(alarm_latched) = true;
+                  id(alarm_muted) = false;
+
+    on_release:
+      then:
+        - logger.log: "Boiler alarm optical signal cleared."
+
+interval:
+  - interval: 100ms
+    then:
+      - if:
+          condition:
+            binary_sensor.is_on: boiler_alarm
+          then:
+            - output.turn_on: red_led_output
+          else:
+            - output.turn_off: red_led_output
+
+  - interval: 2s
+    then:
+      - output.turn_on: green_led_output
+
+  - interval: 500ms
+    then:
+      - if:
+          condition:
+            lambda: |-
+              return id(alarm_latched) && !id(alarm_muted);
+          then:
+            - lambda: |-
+                id(buzzer_phase) = !id(buzzer_phase);
+            - if:
+                condition:
+                  lambda: |-
+                    return id(buzzer_phase);
+                then:
+                  - output.turn_on: buzzer_output
+                else:
+                  - output.turn_off: buzzer_output
+          else:
+            - output.turn_off: buzzer_output
+            - lambda: |-
+                id(buzzer_phase) = false;

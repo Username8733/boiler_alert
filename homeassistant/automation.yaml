@@ -1,0 +1,18 @@
+alias: Boiler Alert - Notify
+description: Skickar notis när pannans larmlampa upptäcks.
+mode: single
+trigger:
+  - platform: state
+    entity_id: binary_sensor.boiler_alert_alarm
+    to: "on"
+    for:
+      milliseconds: 300
+action:
+  - service: notify.mobile_app_DIN_TELEFON
+    data:
+      title: "Pannlarm"
+      message: "Värmepannans röda larmlampa är aktiv."
+  - service: persistent_notification.create
+    data:
+      title: "Pannlarm"
+      message: "Boiler Alert har upptäckt att pannans röda larmlampa är aktiv."

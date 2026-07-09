@@ -1,0 +1,36 @@
+binary_sensor:
+  - platform: gpio
+    id: mute_button
+    name: "${friendly_name} Mute Button"
+    pin:
+      number: GPIO22
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on: 30ms
+      - delayed_off: 30ms
+    on_press:
+      then:
+        - lambda: |-
+            id(alarm_muted) = true;
+        - output.turn_off: buzzer_output
+
+button:
+  - platform: template
+    name: "${friendly_name} Acknowledge Alarm"
+    icon: mdi:bell-cancel
+    on_press:
+      then:
+        - lambda: |-
+            id(alarm_muted) = true;
+        - output.turn_off: buzzer_output
+
+  - platform: template
+    name: "${friendly_name} Reset Latched Alarm"
+    icon: mdi:restore-alert
+    on_press:
+      then:
+        - lambda: |-
+            id(alarm_latched) = false;
+            id(alarm_muted) = false;
+        - output.turn_off: buzzer_output
