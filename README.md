@@ -15,7 +15,7 @@ Projektet är byggt för ett enkelt och robust scenario: pannans röda LED lyser
 - Grön driftindikering
 - Diagnostik: WiFi-signal, uptime, IP-adress, firmwareversion och rå ljusnivå
 - Home Assistant-automation och enkel dashboard
-- Kopplingsschema för experimentplatta/perfboard
+- Tydligt kopplingsdäck-schema för test innan lödning
 - OpenSCAD-filer för 3D-printbar kapsling och sensorhållare
 
 ## Hårdvara
@@ -45,9 +45,9 @@ Projektet är byggt för ett enkelt och robust scenario: pannans röda LED lyser
 
 Börja med:
 
-1. `hardware/wiring/SCHEMATIC_PERFBOARD.md`
-2. `hardware/perfboard/PERFBOARD_BUILD.md`
-3. `docs/BUILD_GUIDE.md`
+1. `hardware/perfboard/BREADBOARD_GUIDE.md`
+2. `hardware/wiring/breadboard-wiring.svg`
+3. `hardware/wiring/SCHEMATIC_PERFBOARD.md`
 4. `firmware/boiler-monitor.yaml`
 
 ## Snabbstart firmware
@@ -61,7 +61,7 @@ Börja med:
 
 ## Status
 
-v0.4.0 är en prototypfokuserad version för experimentplatta/perfboard. Ingen PCB-version ännu.
+v0.5.0 är en prototypfokuserad version med tydligt kopplingsdäck-schema. Ingen PCB-version ännu.
 
 ## Licens
 

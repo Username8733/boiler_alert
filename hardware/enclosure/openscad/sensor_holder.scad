@@ -1,8 +1,5 @@
 // ESPHome Boiler Monitor sensor holder for BPW40/BPW77 phototransistor
-// Print in black filament if possible.
-// Units: mm
 $fn = 64;
-
 outer_d = 10;
 inner_d = 5;
 length = 18;
@@ -13,4 +10,4 @@ difference() {
 }
 
 translate([-10,-5,0])
-  cube([20,10,2]); // Flat mounting pad for VHB tape
+  cube([20,10,2]);

@@ -1,6 +1,6 @@
 # Koppling
 
-Se först `SCHEMATIC_PERFBOARD.md` för komplett byggschema.
+För byggbar prototyp: börja med `breadboard-wiring.svg` och `SCHEMATIC_PERFBOARD.md`.
 
 ## GPIO
 
@@ -14,10 +14,3 @@ Se först `SCHEMATIC_PERFBOARD.md` för komplett byggschema.
 | 5V | Aktiv summer + |
 | 3V3 | Sensorresistor/fototransistor |
 | GND | Gemensam jord |
-
-## Viktigt
-
-- GPIO34 är endast ingång och passar bra för ADC.
-- ESP32:s ADC är inte perfekt, men räcker bra här eftersom pannlampan lyser minst cirka 1 sekund.
-- Röd LED på boxen speglar pannlampan.
-- Summern styrs separat och kan tystas.

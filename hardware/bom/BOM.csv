@@ -9,8 +9,9 @@ Qty,Part,Value / Type,Notes,Preferred store/search
 1,Resistor,220 Ω,MOSFET gate resistor,Electrokit
 1,Resistor,100 kΩ,MOSFET gate pulldown,Electrokit
 1,Resistor,1 MΩ,Phototransistor resistor,Electrokit
-1,Capacitor,100 nF ceramic,Sensor/input noise filtering,Electrokit
+1,Capacitor,100 nF ceramic,Optional sensor/input noise filtering,Electrokit
 1,Pushbutton,NO momentary,Mute button,Electrokit
+1,Breadboard,Full-size recommended,Prototype before soldering,Electrokit
 1,Perfboard,2.54 mm,Prototype board,Electrokit
 1,Enclosure,~100 x 60 x 30 mm,3D print or ABS box,3D print / Electrokit
 1,Cable,2-wire thin cable,Sensor probe cable,Electrokit

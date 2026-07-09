@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.5.0
+
+- Lagt till tydligt kopplingsdäck-schema i SVG.
+- Lagt till utskriftsvänlig breadboard-guide.
+- Lagt till numrerade byggsteg för kopplingsdäck.
+- Lagt till exakt GPIO-mappning direkt i diagram och dokumentation.
+- Lagt till kopplingstabell med rad-för-rad-logik.
+- Lagt till extra varningar om 5 V, 3.3 V och 2N7000-pinout.
+- Ingen elektronisk hårdvaruförändring.
+
 ## v0.4.0
 
 - Lagt till tydligt kopplingsschema för experimentplatta/perfboard.
@@ -14,12 +24,6 @@
 - Firmware uppdaterad mot en mer produktionslik struktur.
 - Lagt till `project:`-metadata i ESPHome.
 - Lagt till firmwareversion som text sensor.
-- Lagt till `Alarm Latched`, `Buzzer Muted`, `Buzzer Active` och `Boiler LED Detected`.
-- Lagt till `Buzzer Enabled` som switch från Home Assistant.
-- Lagt till `Alarm Clear Delay` som justerbar parameter.
-- Lagt till startsekvens för LED/summer.
-- Förbättrat Home Assistant-dashboard.
-- Förbättrat automationsfil med separata notiser för larm och kvittering.
 
 ## v0.2.0
 

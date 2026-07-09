@@ -1,22 +1,16 @@
-# Kopplingsschema för experimentplatta / perfboard
+# Kopplingsschema för experimentplatta / kopplingsdäck
 
-Detta är huvudschemat för att bygga prototypen innan lödning.
+Detta är huvudschemat för prototypbygget.
 
-## Översikt
+## Bildschema
+
+Öppna:
 
 ```text
-                    ESP32
-                 +---------+
-  Sensor ADC --->| GPIO34  |
-  Buzzer ctrl <--| GPIO18  |
-  Red LED    <--| GPIO19  |
-  Green LED  <--| GPIO21  |
-  Mute btn   --->| GPIO22  |
-  3.3V       ---| 3V3     |
-  5V         ---| 5V/VIN  |
-  GND        ---| GND     |
-                 +---------+
+hardware/wiring/breadboard-wiring.svg
 ```
+
+Det är ett tydligt kopplingsdäck-schema med exakt GPIO-mappning.
 
 ## 1. Fototransistor / optisk sensor
 
@@ -100,14 +94,3 @@ BPW40/BPW77  |<          | GPIO21 ----330Ω---->|---- GND  Green LED
 buzzer - ---- Drain 2N7000
 Gate ----100kΩ---- GND
 ```
-
-## Testordning innan lödning
-
-1. Koppla bara ESP32 och flasha firmware.
-2. Kontrollera att enheten dyker upp i Home Assistant.
-3. Koppla grön LED och kontrollera att den lyser.
-4. Koppla röd LED och justera tröskeln tillfälligt så att den kan testas.
-5. Koppla fototransistorn och läs `LED Level`.
-6. Koppla summer + 2N7000.
-7. Koppla tyst-knappen.
-8. Testa hela larmkedjan.

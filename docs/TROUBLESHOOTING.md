@@ -18,9 +18,3 @@
 - Kontrollera att `Boiler Monitor Buzzer Enabled` är på.
 - Testa med `Boiler Monitor Test Buzzer`.
 - Kontrollera 2N7000-orientering.
-- Kontrollera att summern är aktiv och för rätt spänning.
-
-## Tyst-knappen fungerar inte
-
-- Knappen ska koppla GPIO22 till GND.
-- GPIO22 använder intern pull-up.

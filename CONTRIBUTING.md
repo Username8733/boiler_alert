@@ -1,6 +1,3 @@
 # Contributing
 
-- Ändra inte hårdvaran utan att öppna en issue först.
-- Firmwareändringar ska fortsätta fungera med befintlig GPIO-mappning.
-- Dokumentera nya funktioner i README och CHANGELOG.
-- Kör ESPHome compile innan pull request.
+Ändra inte hårdvaran utan issue först. Firmware ska fortsätta fungera med befintlig GPIO-mappning.

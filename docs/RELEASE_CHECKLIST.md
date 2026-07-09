@@ -1,18 +1,8 @@
 # Release checklist
 
-## Före release
-
 - [ ] ESPHome kompilerar lokalt.
 - [ ] GitHub Actions passerar.
-- [ ] README stämmer med aktuell firmware.
+- [ ] README stämmer.
 - [ ] BOM är uppdaterad.
-- [ ] Kopplingsdokumentation är uppdaterad.
-- [ ] Dashboard-entity-namn är kontrollerade.
+- [ ] Kopplingsdäck-schemat är uppdaterat.
 - [ ] CHANGELOG är uppdaterad.
-
-## Skapa release
-
-```bash
-git tag v0.4.0
-git push origin v0.4.0
-```
