@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="950" viewBox="0 0 1400 950">
+<style>
+body{font-family:Arial}
+.box{fill:#f8f8f8;stroke:#222;stroke-width:2}
+.small{font-family:Arial;font-size:18px;fill:#111}
+.txt{font-family:Arial;font-size:24px;font-weight:bold;fill:#111}
+.line{stroke:#111;stroke-width:3;fill:none}
+.red{stroke:#b00000}.green{stroke:#008000}.blue{stroke:#0044bb}
+.comp{fill:#fff;stroke:#444;stroke-width:2}
+</style>
+<text class="txt" x="430" y="50">ESPHome Boiler Monitor - perfboard schematic</text>
+<rect class="box" x="520" y="120" width="360" height="520" rx="18"/>
+<text class="txt" x="650" y="160">ESP32</text>
+<text class="small" x="550" y="230">GPIO34 ADC</text>
+<text class="small" x="550" y="300">GPIO18</text>
+<text class="small" x="550" y="370">GPIO19</text>
+<text class="small" x="550" y="440">GPIO21</text>
+<text class="small" x="550" y="510">GPIO22</text>
+<text class="small" x="550" y="580">3V3 / 5V / GND</text>
+
+<rect class="comp" x="80" y="160" width="270" height="170" rx="12"/>
+<text class="txt" x="120" y="200">Phototransistor</text>
+<text class="small" x="110" y="240">3V3 - 1MΩ - GPIO34</text>
+<text class="small" x="110" y="275">GPIO34 - BPW40 - GND</text>
+<line class="line blue" x1="350" y1="230" x2="520" y2="230"/>
+
+<rect class="comp" x="1030" y="240" width="280" height="140" rx="12"/>
+<text class="txt" x="1110" y="280">Buzzer</text>
+<text class="small" x="1070" y="320">5V -> buzzer -> 2N7000</text>
+<text class="small" x="1070" y="350">GPIO18 via 220Ω gate</text>
+<line class="line" x1="880" y1="300" x2="1030" y2="300"/>
+
+<rect class="comp" x="1030" y="420" width="280" height="110" rx="12"/>
+<text class="txt" x="1100" y="460">Red LED</text>
+<text class="small" x="1080" y="495">GPIO19 - 330Ω - LED - GND</text>
+<line class="line red" x1="880" y1="370" x2="1030" y2="475"/>
+
+<rect class="comp" x="1030" y="570" width="280" height="110" rx="12"/>
+<text class="txt" x="1090" y="610">Green LED</text>
+<text class="small" x="1080" y="645">GPIO21 - 330Ω - LED - GND</text>
+<line class="line green" x1="880" y1="440" x2="1030" y2="625"/>
+
+<rect class="comp" x="80" y="440" width="270" height="120" rx="12"/>
+<text class="txt" x="130" y="480">Mute button</text>
+<text class="small" x="125" y="520">GPIO22 - button - GND</text>
+<line class="line" x1="350" y1="510" x2="520" y2="510"/>
+
+<text class="small" x="400" y="810">Note: Kontrollera 2N7000 pinout mot databladet innan lödning.</text>
+<text class="small" x="400" y="845">Röd LED på boxen speglar pannans LED. Summern kvitteras separat.</text>
+</svg>

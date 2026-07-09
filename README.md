@@ -15,6 +15,7 @@ Projektet är byggt för ett enkelt och robust scenario: pannans röda LED lyser
 - Grön driftindikering
 - Diagnostik: WiFi-signal, uptime, IP-adress, firmwareversion och rå ljusnivå
 - Home Assistant-automation och enkel dashboard
+- Kopplingsschema för experimentplatta/perfboard
 - OpenSCAD-filer för 3D-printbar kapsling och sensorhållare
 
 ## Hårdvara
@@ -40,7 +41,16 @@ Projektet är byggt för ett enkelt och robust scenario: pannans röda LED lyser
 | GPIO21 | Grön drift-LED |
 | GPIO22 | Tyst-knapp, INPUT_PULLUP |
 
-## Snabbstart
+## Bygg prototyp först
+
+Börja med:
+
+1. `hardware/wiring/SCHEMATIC_PERFBOARD.md`
+2. `hardware/perfboard/PERFBOARD_BUILD.md`
+3. `docs/BUILD_GUIDE.md`
+4. `firmware/boiler-monitor.yaml`
+
+## Snabbstart firmware
 
 1. Kopiera `firmware/secrets.yaml.example` till `firmware/secrets.yaml`.
 2. Fyll i WiFi-uppgifter.
@@ -49,26 +59,9 @@ Projektet är byggt för ett enkelt och robust scenario: pannans röda LED lyser
 5. Lägg till enheten i Home Assistant.
 6. Justera `LED Threshold` tills `Boiler Monitor Alarm` bara aktiveras när pannans röda LED lyser.
 
-## Beteende
-
-- Röd LED på enheten följer pannans LED.
-- Summern börjar pipa om pannlampan varit aktiv i minst 300 ms.
-- Summern fortsätter tills du trycker på Tyst eller kvitterar från Home Assistant.
-- Om pannlampan slocknar återställs inte larmet automatiskt; det finns en separat reset-knapp i Home Assistant.
-
-## Mappstruktur
-
-```text
-firmware/         ESPHome-konfiguration
-homeassistant/    Dashboard och automationer
-hardware/         BOM, koppling och 3D-printbara modeller
-docs/             Byggguide, kalibrering och felsökning
-.github/          GitHub Actions och issue templates
-```
-
 ## Status
 
-Detta är v0.3.0: firmwarefokuserad version för experimentkort. Ingen PCB-version ännu.
+v0.4.0 är en prototypfokuserad version för experimentplatta/perfboard. Ingen PCB-version ännu.
 
 ## Licens
 

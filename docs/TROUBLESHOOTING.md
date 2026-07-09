@@ -19,14 +19,8 @@
 - Testa med `Boiler Monitor Test Buzzer`.
 - Kontrollera 2N7000-orientering.
 - Kontrollera att summern är aktiv och för rätt spänning.
-- Kontrollera att `Boiler Monitor Alarm` aktiveras i Home Assistant.
 
 ## Tyst-knappen fungerar inte
 
 - Knappen ska koppla GPIO22 till GND.
 - GPIO22 använder intern pull-up.
-
-## GitHub Actions misslyckas
-
-- Kontrollera att `firmware/boiler-monitor.yaml` finns.
-- Kontrollera att `firmware/secrets.yaml.example` innehåller alla secrets som firmware refererar till.

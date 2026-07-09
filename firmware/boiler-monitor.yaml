@@ -1,7 +1,7 @@
 substitutions:
   device_name: boiler-monitor
   friendly_name: Boiler Monitor
-  firmware_version: "0.3.0"
+  firmware_version: "0.4.0"
 
 packages:
   base: !include packages/base.yaml

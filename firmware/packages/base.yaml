@@ -8,7 +8,6 @@ esphome:
   on_boot:
     priority: -100
     then:
-      # Enkel självtest: röd LED, grön LED och kort summerpuls.
       - output.turn_on: red_led_output
       - output.turn_on: green_led_output
       - if:

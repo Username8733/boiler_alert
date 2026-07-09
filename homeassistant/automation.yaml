@@ -1,6 +1,3 @@
-# Importera eller kopiera dessa automationer till Home Assistant.
-# Byt notify.mobile_app_DIN_TELEFON till din faktiska notify-tjänst.
-
 - alias: Boiler Monitor - Alarm Notification
   id: boiler_monitor_alarm_notification
   description: Skickar notis när pannans larmlampa upptäcks.

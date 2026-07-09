@@ -14,11 +14,6 @@ globals:
     restore_value: no
     initial_value: 'false'
 
-  - id: led_detected_last
-    type: bool
-    restore_value: no
-    initial_value: 'false'
-
   - id: last_alarm_seen_ms
     type: uint32_t
     restore_value: no
@@ -40,7 +35,6 @@ binary_sensor:
       return id(boiler_led_level).state > id(boiler_led_threshold).state;
     on_press:
       then:
-        # Verifierar att lampan fortfarande är tänd efter 300 ms.
         - delay: 300ms
         - if:
             condition:
@@ -53,7 +47,7 @@ binary_sensor:
 
     on_release:
       then:
-        - logger.log: "Boiler LED optical signal cleared."
+        - logger.log: "Boiler optical alarm signal cleared."
 
   - platform: template
     id: alarm_latched_sensor
@@ -75,7 +69,6 @@ binary_sensor:
       return id(alarm_latched) && !id(alarm_muted) && id(buzzer_enabled).state;
 
 interval:
-  # Röd LED speglar pannlampan 1:1.
   - interval: 100ms
     then:
       - if:
@@ -88,12 +81,10 @@ interval:
           else:
             - output.turn_off: red_led_output
 
-  # Grön LED visar drift.
   - interval: 2s
     then:
       - output.turn_on: green_led_output
 
-  # Valfri automatisk återställning efter att pannlampan varit släckt.
   - interval: 5s
     then:
       - if:
@@ -110,7 +101,6 @@ interval:
                 id(alarm_muted) = false;
             - output.turn_off: buzzer_output
 
-  # Summer: 0,5 s på / 0,5 s av tills kvitterad.
   - interval: 500ms
     then:
       - if:

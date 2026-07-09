@@ -13,8 +13,6 @@
 ## Skapa release
 
 ```bash
-git tag v0.3.0
-git push origin v0.3.0
+git tag v0.4.0
+git push origin v0.4.0
 ```
-
-Skapa sedan GitHub Release och bifoga ZIP om önskat.

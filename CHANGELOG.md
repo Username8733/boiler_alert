@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.4.0
+
+- Lagt till tydligt kopplingsschema för experimentplatta/perfboard.
+- Lagt till byggguide för perfboard innan lödning.
+- Lagt till ASCII-schema, kopplingstabell och testordning.
+- Lagt till SVG-kopplingsbild som går att öppna i webbläsare.
+- Förtydligat fototransistorkoppling och inverterad signal.
+- Ingen elektronisk hårdvaruförändring.
+
 ## v0.3.0
 
 - Firmware uppdaterad mot en mer produktionslik struktur.
@@ -11,15 +20,10 @@
 - Lagt till startsekvens för LED/summer.
 - Förbättrat Home Assistant-dashboard.
 - Förbättrat automationsfil med separata notiser för larm och kvittering.
-- Förtydligad README och dokumentation.
 
 ## v0.2.0
 
 - Bytt projektnamn till ESPHome Boiler Monitor.
-- Uppdaterat alla firmware-namn från `boiler-alert` till `boiler-monitor`.
-- Lagt till GitHub issue templates.
-- Lagt till release-checklista.
-- Förbättrat bygg-, kalibrerings- och felsökningsdokumentation.
 
 ## v0.1.0
 

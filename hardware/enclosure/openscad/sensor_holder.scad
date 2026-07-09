@@ -12,6 +12,5 @@ difference() {
   translate([0,0,-1]) cylinder(h=length+2, d=inner_d);
 }
 
-// Flat mounting pad for VHB tape
 translate([-10,-5,0])
-  cube([20,10,2]);
+  cube([20,10,2]); // Flat mounting pad for VHB tape

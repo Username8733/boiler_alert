@@ -1,5 +1,7 @@
 # Koppling
 
+Se först `SCHEMATIC_PERFBOARD.md` för komplett byggschema.
+
 ## GPIO
 
 | ESP32 GPIO | Ansluts till |
@@ -10,41 +12,12 @@
 | GPIO21 | Grön LED via 330 Ω |
 | GPIO22 | Tyst-knapp till GND, intern pullup |
 | 5V | Aktiv summer + |
-| 3V3 | Sensor pull-up/pull-down enligt vald fototransistorkoppling |
+| 3V3 | Sensorresistor/fototransistor |
 | GND | Gemensam jord |
 
-## Summer med 2N7000
+## Viktigt
 
-```text
-ESP32 GPIO18 ── 220Ω ── Gate 2N7000
-Gate 2N7000 ── 100kΩ ── GND
-
-+5V ── Summer + 
-Summer - ── Drain 2N7000
-Source 2N7000 ── GND
-```
-
-## LED
-
-```text
-GPIO19 ── 330Ω ── Röd LED ── GND
-GPIO21 ── 330Ω ── Grön LED ── GND
-```
-
-## Tyst-knapp
-
-```text
-GPIO22 ── Tryckknapp ── GND
-```
-
-GPIO22 använder `INPUT_PULLUP` och är inverterad i ESPHome.
-
-## Fototransistor
-
-Rekommenderad startpunkt:
-
-```text
-3V3 ── 1MΩ ── ADC GPIO34 ── Fototransistor ── GND
-```
-
-Beroende på fototransistorns orientering kan signalen bli inverterad. Om signalen går åt fel håll, vänd fototransistorn eller ändra jämförelsen i ESPHome.
+- GPIO34 är endast ingång och passar bra för ADC.
+- ESP32:s ADC är inte perfekt, men räcker bra här eftersom pannlampan lyser minst cirka 1 sekund.
+- Röd LED på boxen speglar pannlampan.
+- Summern styrs separat och kan tystas.

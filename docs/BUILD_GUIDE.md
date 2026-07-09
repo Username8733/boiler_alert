@@ -1,5 +1,12 @@
 # Byggbeskrivning
 
+## Rekommenderad ordning
+
+1. Läs `hardware/wiring/SCHEMATIC_PERFBOARD.md`.
+2. Bygg kretsen på kopplingsdäck om du vill testa utan lödning.
+3. Flytta till experimentplatta/perfboard när allt fungerar.
+4. Montera i kapsling först när kalibreringen är stabil.
+
 ## 1. Bygg sensorhuvudet
 
 1. Löda fast tvåledarkabel på fototransistorn.
