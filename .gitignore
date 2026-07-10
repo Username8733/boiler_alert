@@ -1,5 +1,4 @@
 firmware/secrets.yaml
 .esphome/
 .DS_Store
-.vscode/
-.idea/
+*.zip

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+<style>
+  .title { font: bold 54px Arial, sans-serif; fill: #111; }
+  .subtitle { font: 28px Arial, sans-serif; fill: #444; }
+  .label { font: bold 30px Arial, sans-serif; fill: #111; }
+  .text { font: 26px Arial, sans-serif; fill: #111; }
+  .small { font: 22px Arial, sans-serif; fill: #333; }
+  .pin { font: bold 24px Arial, sans-serif; fill: #111; }
+  .board { fill: #263238; stroke: #111; stroke-width: 4; }
+  .component { fill: #fafafa; stroke: #222; stroke-width: 4; }
+  .note { fill: #fff8dc; stroke: #c58b00; stroke-width: 3; }
+  .wire-red { stroke: #d00000; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-black { stroke: #111; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-orange { stroke: #ef7d00; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-purple { stroke: #6a1b9a; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-yellow { stroke: #d9a300; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-green { stroke: #008f3d; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-blue { stroke: #0068c9; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .lead { stroke: #555; stroke-width: 7; fill: none; stroke-linecap: round; }
+  .resistor { fill: #ead6a2; stroke: #5d4930; stroke-width: 4; }
+  .ground { stroke: #111; stroke-width: 6; }
+</style>
+<rect width="100%" height="100%" fill="white"/>
+<text x="60" y="80" class="title">5. 2N7000 and Active Buzzer</text>
+<text x="60" y="125" class="subtitle">Each transistor pin is shown separately.</text>
+
+<rect x="80" y="400" width="330" height="260" rx="24" class="board"/>
+<text x="145" y="465" style="font:bold 38px Arial; fill:white;">ESP32 D1 R32</text>
+<circle cx="390" cy="520" r="12" fill="white"/>
+<text x="120" y="538" style="font:bold 32px Arial; fill:white;">GPIO18</text>
+
+<path d="M390 520 H590" class="wire-yellow"/>
+<rect x="590" y="470" width="250" height="100" rx="30" class="resistor"/>
+<text x="645" y="535" class="label">220 ohm</text>
+<path d="M840 520 H1020" class="wire-yellow"/>
+
+<rect x="1020" y="350" width="280" height="340" rx="28" class="component"/>
+<text x="1070" y="405" class="label">2N7000</text>
+<circle cx="1020" cy="520" r="12" fill="#d9a300"/>
+<circle cx="1160" cy="690" r="12" fill="#111"/>
+<circle cx="1300" cy="520" r="12" fill="#111"/>
+<text x="950" y="500" class="label">Gate (G)</text>
+<text x="1090" y="750" class="label">Source (S)</text>
+<text x="1280" y="500" class="label">Drain (D)</text>
+
+<rect x="870" y="660" width="70" height="190" rx="20" class="resistor"/>
+<text x="815" y="890" class="label">100 kohm</text>
+<path d="M1020 520 H905 V660" class="wire-yellow"/>
+<path d="M905 850 V890" class="wire-black"/>
+
+<line x1="905" y1="890" x2="905" y2="930" class="ground"/>
+<line x1="867" y1="930" x2="943" y2="930" class="ground"/>
+<line x1="879" y1="945" x2="931" y2="945" class="ground"/>
+<line x1="891" y1="960" x2="919" y2="960" class="ground"/>
+<text x="865" y="1000" class="label">GND</text>
+
+<path d="M1160 690 V800" class="wire-black"/>
+
+<line x1="1160" y1="800" x2="1160" y2="840" class="ground"/>
+<line x1="1122" y1="840" x2="1198" y2="840" class="ground"/>
+<line x1="1134" y1="855" x2="1186" y2="855" class="ground"/>
+<line x1="1146" y1="870" x2="1174" y2="870" class="ground"/>
+<text x="1120" y="910" class="label">GND</text>
+
+<circle cx="1430" cy="420" r="120" fill="#444" stroke="#111" stroke-width="5"/>
+<circle cx="1430" cy="420" r="35" fill="#777"/>
+<text x="1320" y="235" class="label">Active 5V buzzer</text>
+<text x="1350" y="430" style="font:bold 42px Arial; fill:white;">-</text>
+<text x="1485" y="430" style="font:bold 42px Arial; fill:white;">+</text>
+
+<path d="M1300 520 H1360 V450" class="wire-black"/>
+<path d="M1500 420 H1530 V210 H1380" class="wire-red"/>
+<text x="1375" y="185" class="label">+5V</text>
+
+<rect x="70" y="945" width="1460" height="105" rx="20" class="note"/>
+<text x="110" y="1005" class="text">Verify the Gate/Drain/Source order against the datasheet for your exact 2N7000 package.</text>
+</svg>

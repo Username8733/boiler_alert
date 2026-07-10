@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+<style>
+  .title { font: bold 54px Arial, sans-serif; fill: #111; }
+  .subtitle { font: 28px Arial, sans-serif; fill: #444; }
+  .label { font: bold 30px Arial, sans-serif; fill: #111; }
+  .text { font: 26px Arial, sans-serif; fill: #111; }
+  .small { font: 22px Arial, sans-serif; fill: #333; }
+  .pin { font: bold 24px Arial, sans-serif; fill: #111; }
+  .board { fill: #263238; stroke: #111; stroke-width: 4; }
+  .component { fill: #fafafa; stroke: #222; stroke-width: 4; }
+  .note { fill: #fff8dc; stroke: #c58b00; stroke-width: 3; }
+  .wire-red { stroke: #d00000; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-black { stroke: #111; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-orange { stroke: #ef7d00; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-purple { stroke: #6a1b9a; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-yellow { stroke: #d9a300; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-green { stroke: #008f3d; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-blue { stroke: #0068c9; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .lead { stroke: #555; stroke-width: 7; fill: none; stroke-linecap: round; }
+  .resistor { fill: #ead6a2; stroke: #5d4930; stroke-width: 4; }
+  .ground { stroke: #111; stroke-width: 6; }
+</style>
+<rect width="100%" height="100%" fill="white"/>
+<text x="60" y="80" class="title">4. Green Status LED</text>
+<text x="60" y="125" class="subtitle">GPIO21 drives the LED through a 330 ohm resistor.</text>
+
+<rect x="80" y="380" width="330" height="260" rx="24" class="board"/>
+<text x="145" y="445" style="font:bold 38px Arial; fill:white;">ESP32 D1 R32</text>
+<circle cx="390" cy="500" r="12" fill="white"/>
+<text x="120" y="518" style="font:bold 32px Arial; fill:white;">GPIO21</text>
+
+<path d="M390 500 H610" class="wire-green"/>
+<rect x="610" y="450" width="250" height="100" rx="30" class="resistor"/>
+<text x="665" y="515" class="label">330 ohm</text>
+<path d="M860 500 H1010" class="wire-green"/>
+
+<circle cx="1120" cy="500" r="95" fill="#10a64a" stroke="#222" stroke-width="5"/>
+<line x1="1010" y1="500" x2="1025" y2="500" class="lead"/>
+<line x1="1215" y1="500" x2="1330" y2="500" class="lead"/>
+<text x="970" y="380" class="label">Anode (+)</text>
+<text x="1190" y="380" class="label">Cathode (-)</text>
+<text x="930" y="650" class="text">Long leg</text>
+<text x="1200" y="650" class="text">Short leg / flat side</text>
+
+<path d="M1330 500 V680" class="wire-black"/>
+
+<line x1="1330" y1="680" x2="1330" y2="720" class="ground"/>
+<line x1="1292" y1="720" x2="1368" y2="720" class="ground"/>
+<line x1="1304" y1="735" x2="1356" y2="735" class="ground"/>
+<line x1="1316" y1="750" x2="1344" y2="750" class="ground"/>
+<text x="1290" y="790" class="label">GND</text>
+
+<rect x="70" y="880" width="1460" height="150" rx="20" class="note"/>
+<text x="110" y="930" class="text">GPIO21 -> 330 ohm resistor -> LED anode (long leg).</text>
+<text x="110" y="980" class="text">LED cathode (short leg / flat side) -> GND.</text>
+</svg>

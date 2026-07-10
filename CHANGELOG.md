@@ -1,11 +1,24 @@
 # Changelog
 
-The complete project history is maintained in `README.md`.
+## v2.0.0-rc4
 
-## v2.0.0-rc1
+- Removed GitHub workflows and project-maintenance files
+- Removed internal audit and checksum files
+- Removed modular development firmware
+- Flattened firmware and Home Assistant directories
+- Removed individual PDF versions of function diagrams
+- Removed the combined PDF manual for now
+- Kept PNG and SVG wiring illustrations
+- Kept all STL and OpenSCAD files
+- Simplified documentation structure
+- Updated README to match the simplified repository
 
-- Reorganized and repackaged the repository for review
-- Audited text files for Swedish-language remnants
-- Added missing release firmware and 3D assets
-- Added English installation, hardware-test, and troubleshooting guides
-- Added governance files, issue forms, roadmap, and pull-request template
+## v2.0.0-rc3
+
+- Restored visual wiring illustrations
+- Added explicit component-pin labels
+- Added SVG source files
+
+## Earlier versions
+
+See the Git history for the complete development history.

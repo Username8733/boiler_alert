@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+<style>
+  .title { font: bold 54px Arial, sans-serif; fill: #111; }
+  .subtitle { font: 28px Arial, sans-serif; fill: #444; }
+  .label { font: bold 30px Arial, sans-serif; fill: #111; }
+  .text { font: 26px Arial, sans-serif; fill: #111; }
+  .small { font: 22px Arial, sans-serif; fill: #333; }
+  .pin { font: bold 24px Arial, sans-serif; fill: #111; }
+  .board { fill: #263238; stroke: #111; stroke-width: 4; }
+  .component { fill: #fafafa; stroke: #222; stroke-width: 4; }
+  .note { fill: #fff8dc; stroke: #c58b00; stroke-width: 3; }
+  .wire-red { stroke: #d00000; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-black { stroke: #111; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-orange { stroke: #ef7d00; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-purple { stroke: #6a1b9a; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-yellow { stroke: #d9a300; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-green { stroke: #008f3d; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .wire-blue { stroke: #0068c9; stroke-width: 10; fill: none; stroke-linecap: round; }
+  .lead { stroke: #555; stroke-width: 7; fill: none; stroke-linecap: round; }
+  .resistor { fill: #ead6a2; stroke: #5d4930; stroke-width: 4; }
+  .ground { stroke: #111; stroke-width: 6; }
+</style>
+<rect width="100%" height="100%" fill="white"/>
+<text x="60" y="80" class="title">6. Mute Button</text>
+<text x="60" y="125" class="subtitle">Use one terminal from each internally connected side.</text>
+
+<rect x="80" y="380" width="330" height="260" rx="24" class="board"/>
+<text x="145" y="445" style="font:bold 38px Arial; fill:white;">ESP32 D1 R32</text>
+<circle cx="390" cy="500" r="12" fill="white"/>
+<text x="120" y="518" style="font:bold 32px Arial; fill:white;">GPIO22</text>
+
+<path d="M390 500 H760" class="wire-blue"/>
+<rect x="760" y="350" width="420" height="300" rx="35" class="component"/>
+<circle cx="970" cy="500" r="85" fill="#888" stroke="#333" stroke-width="5"/>
+
+<circle cx="800" cy="390" r="12" fill="#0068c9"/>
+<circle cx="1140" cy="390" r="12" fill="#111"/>
+<circle cx="800" cy="610" r="12" fill="#0068c9"/>
+<circle cx="1140" cy="610" r="12" fill="#111"/>
+
+<text x="710" y="325" class="label">Side A</text>
+<text x="1120" y="325" class="label">Side B</text>
+<line x1="800" y1="390" x2="800" y2="610" stroke="#0068c9" stroke-width="5"/>
+<line x1="1140" y1="390" x2="1140" y2="610" stroke="#111" stroke-width="5"/>
+
+<path d="M1180 500 H1350 V720" class="wire-black"/>
+
+<line x1="1350" y1="720" x2="1350" y2="760" class="ground"/>
+<line x1="1312" y1="760" x2="1388" y2="760" class="ground"/>
+<line x1="1324" y1="775" x2="1376" y2="775" class="ground"/>
+<line x1="1336" y1="790" x2="1364" y2="790" class="ground"/>
+<text x="1310" y="830" class="label">GND</text>
+
+<rect x="70" y="860" width="1460" height="170" rx="20" class="note"/>
+<text x="110" y="915" class="text">GPIO22 -> one terminal on Side A.</text>
+<text x="110" y="965" class="text">GND -> one terminal on Side B. Do not use two pins on the same internally connected side.</text>
+</svg>

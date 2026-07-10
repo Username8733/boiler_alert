@@ -1,7 +1,7 @@
 substitutions:
   device_name: boiler-monitor
   friendly_name: Boiler Monitor
-  firmware_version: "2.0.0-rc1"
+  firmware_version: "2.0.0-rc4"
 
 esphome:
   name: ${device_name}
@@ -13,7 +13,7 @@ esphome:
   on_boot:
     priority: -100
     then:
-      # Enkel uppstartsindikering:
+      # Simple startup indication:
       # green LED on, red LED briefly on, short buzzer beep, green LED on.
       - output.turn_on: green_led_output
       - delay: 250ms
@@ -110,7 +110,7 @@ text_sensor:
 ########################################################
 
 sensor:
-  # Rå ljusnivå från fototransistor
+  # Raw light level from the phototransistor
   - platform: adc
     pin: GPIO34
     id: boiler_led_level
@@ -130,7 +130,7 @@ sensor:
     update_interval: 60s
     entity_category: diagnostic
 
-  # WiFi kvalitet i procent
+  # Wi-Fi quality as a percentage
   - platform: copy
     source_id: wifi_rssi
     name: "${friendly_name} WiFi Signal Percent"
@@ -148,7 +148,7 @@ sensor:
     update_interval: 60s
     entity_category: diagnostic
 
-  # DS18B20 temperaturgivare
+  # DS18B20 temperature sensor
   # Wiring:
   # VDD  -> 3V3
   # GND  -> GND
@@ -246,7 +246,7 @@ binary_sensor:
       return id(boiler_led_level).state > id(boiler_led_threshold).state;
     on_press:
       then:
-        # 300 ms verifiering för att undvika glitchar.
+        # Verify the signal for 300 ms to reject short glitches.
         - delay: 300ms
         - if:
             condition:
@@ -348,7 +348,7 @@ interval:
       - output.turn_on: green_led_output
 
   # Optional automatic clearing after the boiler LED has remained off.
-  # 0 sekunder = avstängt.
+  # 0 seconds = disabled.
   - interval: 5s
     then:
       - if:
