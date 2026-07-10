@@ -1,11 +1,11 @@
 # Changelog
 
-See the complete version history in `README.md`.
+The complete project history is maintained in `README.md`.
 
-## v1.0.0
+## v2.0.0-rc1
 
-- Full English translation
-- Complete documentation and release packaging
-- English diagrams and printable PDF
-- All firmware variants, Home Assistant files, STL and SCAD assets included
-- Final-solution concept image included
+- Reorganized and repackaged the repository for review
+- Audited text files for Swedish-language remnants
+- Added missing release firmware and 3D assets
+- Added English installation, hardware-test, and troubleshooting guides
+- Added governance files, issue forms, roadmap, and pull-request template

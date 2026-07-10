@@ -2,189 +2,221 @@
 
 [![ESPHome](https://img.shields.io/badge/ESPHome-compatible-000000?logo=esphome)](https://esphome.io/)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-integrated-41BDF5?logo=homeassistant&logoColor=white)](https://www.home-assistant.io/)
+[![Release](https://img.shields.io/badge/release-v2.0.0--rc1-orange)](release/RELEASE_NOTES_v2.0.0-rc1.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-An open-source optical alarm monitor for boilers and other appliances with a visible warning LED.
+An open-source ESPHome device that optically monitors the warning LED on a boiler, mirrors the indication locally, sounds an audible alarm, records the most recent alarm time, and reports diagnostics to Home Assistant.
 
 ![Final solution concept](images/concept/final-solution-concept.png)
 
-## What it does
+> [!IMPORTANT]
+> This is a hobby monitoring accessory. It does not replace the boiler manufacturer's safety systems, inspections, alarms, or maintenance requirements.
 
-A phototransistor is mounted in front of the boiler's red warning LED. The ESP32 reads the light level, mirrors it on a local red LED, latches an alarm, sounds an active buzzer, and reports the state to Home Assistant. An optional DS18B20 adds temperature monitoring.
+## Features
 
-## Main features
-
-- Optical warning-LED detection
+- Optical detection using a BPW40/BPW77-style phototransistor
 - Adjustable analog threshold
 - 300 ms false-trigger filtering
-- Red LED mirrors the boiler LED
-- Audible alarm with physical and Home Assistant mute controls
+- Local red LED that mirrors the boiler LED
 - Green run/status LED
+- Active 5 V buzzer driven by a 2N7000
+- Physical mute button
+- Latched alarm with Home Assistant controls
 - Last-alarm timestamp
-- DS18B20 temperature monitoring
-- Built-in web server and diagnostics
+- Optional DS18B20 temperature measurement
+- Built-in ESPHome web server
 - Wi-Fi RSSI, signal percentage, IP, SSID, MAC, uptime, and firmware version
-- Hardware self-test
-- Home Assistant dashboards and notifications
-- Single-file release firmware
-- Modular source firmware
-- 3D-printable enclosure and sensor holder
+- Dedicated hardware-test firmware
+- Single-file production firmware
+- Home Assistant overview and diagnostics dashboards
+- 3D-printable enclosure and optical sensor holder
 
-## Hardware overview
+## Project structure
 
-| Function | GPIO |
+```text
+firmware/
+  release/       Ready-to-install single-file firmware
+  source/        Development source area
+
+hardware/
+  bom/           Bill of materials
+  wiring/        Connection table
+  enclosure/     STL and OpenSCAD files
+
+docs/
+  manual/        Installation, testing, calibration, and diagnostics
+  components/    One component/function per document
+  checklists/    Pre-power and pre-install checks
+  troubleshooting/
+
+homeassistant/
+  dashboard/     Overview and diagnostics cards
+  automation/    Alarm notifications
+
+images/
+  concept/       Intended finished solution
+  functions/     Printable function diagrams
+```
+
+## Hardware
+
+| Function | ESP32 GPIO |
 |---|---:|
-| Phototransistor ADC | GPIO34 |
+| Phototransistor analog input | GPIO34 |
 | Buzzer MOSFET gate | GPIO18 |
 | Red alarm LED | GPIO19 |
 | Green status LED | GPIO21 |
 | Mute button | GPIO22 |
-| DS18B20 DATA | GPIO23 |
+| DS18B20 data | GPIO23 |
 
-## Quick start
+See the complete [bill of materials](hardware/bom/BOM.md) and [connection table](hardware/wiring/CONNECTION_TABLE.md).
 
-1. Copy `firmware/release/secrets.yaml.example` to your ESPHome secrets file.
-2. Flash `firmware/release/hardware-test.yaml`.
-3. Verify the LEDs, buzzer, and button.
-4. Build the sensor circuit using [the connection table](hardware/wiring/CONNECTION_TABLE.md).
-5. Flash `firmware/release/boiler-monitor.yaml`.
-6. Add the device to Home Assistant.
-7. Import the [overview dashboard](homeassistant/dashboard/overview.yaml) and [diagnostics dashboard](homeassistant/dashboard/diagnostics.yaml).
-8. Calibrate the threshold using the [calibration guide](docs/manual/CALIBRATION.md).
+## Installation
 
-## Wiring diagrams
+### 1. Test the hardware first
 
-- [Power](images/functions/01_power.png)
-- [Phototransistor sensor](images/functions/02_phototransistor_sensor.png)
-- [Red alarm LED](images/functions/03_red_alarm_led.png)
-- [Green status LED](images/functions/04_green_status_led.png)
-- [MOSFET and buzzer](images/functions/05_mosfet_buzzer.png)
-- [Mute button](images/functions/06_mute_button.png)
-- [DS18B20](images/functions/07_ds18b20.png)
-- [Combined printable PDF](docs/manual/FUNCTION_DIAGRAMS.pdf)
+Flash:
 
-## Firmware
+[`firmware/release/hardware-test.yaml`](firmware/release/hardware-test.yaml)
 
-### Recommended
+The startup and button sequences verify the green LED, red LED, buzzer, MOSFET driver, and physical button.
 
-Use the single-file release:
+Read the [hardware-test guide](docs/manual/HARDWARE_TEST.md).
 
-- [`firmware/release/boiler-monitor.yaml`](firmware/release/boiler-monitor.yaml)
-- [`firmware/release/hardware-test.yaml`](firmware/release/hardware-test.yaml)
+### 2. Install the production firmware
 
-### Development source
+Use:
 
-The modular source is under [`firmware/source/`](firmware/source/).
+[`firmware/release/boiler-monitor.yaml`](firmware/release/boiler-monitor.yaml)
 
-## Home Assistant
+This is a single ESPHome YAML file and does not depend on package files.
+
+Follow the [installation guide](docs/manual/INSTALLATION.md).
+
+### 3. Add Home Assistant
 
 - [Overview dashboard](homeassistant/dashboard/overview.yaml)
 - [Diagnostics dashboard](homeassistant/dashboard/diagnostics.yaml)
 - [Alarm notification automation](homeassistant/automation/notifications.yaml)
 
-If Home Assistant and the ESP32 are on different VLANs, automatic discovery may not work. Add the ESPHome integration manually by IP address and allow TCP port 6053 between VLANs.
+If the device is on another VLAN, add the ESPHome integration manually using its IP address.
 
-## 3D-printable files
+### 4. Calibrate the optical sensor
 
-- [Boiler Alert case - STL](hardware/enclosure/stl/boiler_alert_case.stl)
-- [Boiler Monitor case - STL](hardware/enclosure/stl/boiler_monitor_case.stl)
-- [Sensor holder - STL](hardware/enclosure/stl/sensor_holder.stl)
-- [OpenSCAD source files](hardware/enclosure/openscad/)
+Follow the [calibration guide](docs/manual/CALIBRATION.md).
+
+## Wiring diagrams
+
+Each diagram covers one function:
+
+- [Power](images/functions/01_power.png)
+- [Phototransistor sensor](images/functions/02_phototransistor_sensor.png)
+- [Red alarm LED](images/functions/03_red_alarm_led.png)
+- [Green status LED](images/functions/04_green_status_led.png)
+- [2N7000 and buzzer](images/functions/05_mosfet_buzzer.png)
+- [Mute button](images/functions/06_mute_button.png)
+- [DS18B20](images/functions/07_ds18b20.png)
+- [Combined printable PDF](docs/manual/FUNCTION_DIAGRAMS.pdf)
+
+## 3D printing
+
+Included models:
+
+- [Boiler Alert case STL](hardware/enclosure/stl/boiler_alert_case.stl)
+- [Boiler Monitor case STL](hardware/enclosure/stl/boiler_monitor_case.stl)
+- [Optical sensor holder STL](hardware/enclosure/stl/sensor_holder.stl)
+- [OpenSCAD source](hardware/enclosure/openscad/)
+
+Read the [enclosure guide](docs/manual/ENCLOSURE.md).
 
 ## Documentation
 
 - [Build guide](docs/manual/BUILD_GUIDE.md)
+- [Installation](docs/manual/INSTALLATION.md)
+- [Hardware test](docs/manual/HARDWARE_TEST.md)
 - [Calibration](docs/manual/CALIBRATION.md)
 - [Diagnostics](docs/manual/DIAGNOSTICS.md)
-- [Enclosure and sensor holder](docs/manual/ENCLOSURE.md)
-- [Bill of materials](hardware/bom/BOM.md)
-- [Connection table](hardware/wiring/CONNECTION_TABLE.md)
+- [Enclosure](docs/manual/ENCLOSURE.md)
+- [Troubleshooting](docs/troubleshooting/TROUBLESHOOTING.md)
 - [Pre-power checklist](docs/checklists/PRE_POWER_CHECKLIST.md)
 - [Pre-installation checklist](docs/checklists/PRE_INSTALL_CHECKLIST.md)
 
-## Repository
+## External links
 
-- GitHub: https://github.com/Username8733/ESPHome-Boiler-Monitor
-- ESPHome documentation: https://esphome.io/
-- Home Assistant ESPHome integration: https://www.home-assistant.io/integrations/esphome/
+- [ESPHome documentation](https://esphome.io/)
+- [Home Assistant](https://www.home-assistant.io/)
+- [ESPHome integration](https://www.home-assistant.io/integrations/esphome/)
+- [Project repository](https://github.com/Username8733/ESPHome-Boiler-Monitor)
 
 ## Version history
 
-### v1.0.0 - English release
+### v2.0.0-rc1
 
-- Complete English translation
-- Comprehensive README with images, links, installation steps, and full history
-- Single-file production firmware
-- Single-file hardware-test firmware
-- Modular source firmware retained
-- Home Assistant overview and diagnostics dashboards
-- Last-alarm timestamp
-- DS18B20 support
-- Built-in diagnostics and hardware self-test
-- English per-function PNG/PDF wiring diagrams
-- Combined printable wiring manual
-- All enclosure and sensor-holder STL/SCAD files included
-- Final-solution concept image included
+- First complete review candidate for v2
+- Repository-wide English cleanup
+- Detailed README with links, image, instructions, and history
+- Single-file production firmware and hardware-test firmware
+- Home Assistant overview, diagnostics, and notification files
+- Function-specific diagrams and printable combined PDF
+- Enclosure and sensor-holder STL/SCAD files bundled
+- GitHub issue forms, pull-request template, Dependabot, EditorConfig, and roadmap
+- English terminology and documentation audit report
+
+### v1.0.0
+
+- First packaged English release
+- Firmware, Home Assistant dashboards, diagrams, BOM, documentation, and 3D assets
+- Final-solution concept image
 
 ### v0.8.1
 
-- Added single-file firmware release
+- Added the single-file firmware release
 
 ### v0.8.0
 
-- Added diagnostics dashboard
+- Added diagnostics
 - Added DS18B20 support
-- Added Wi-Fi quality percentage
 - Added last-alarm timestamp
-- Added expanded diagnostic entities
+- Added Wi-Fi quality percentage
 
 ### v0.7.0
 
 - Added one function diagram per component
-- Added printable function-diagram PDF
-- Added component-specific documentation
+- Added printable diagrams and component documentation
 
 ### v0.6.0
 
-- Added build manual
-- Added cable-by-cable connection table
+- Added build manual and cable-by-cable connection table
 - Added pre-power and pre-solder checklists
 
 ### v0.5.0
 
-- Added breadboard-focused documentation
-- Added detailed pin mapping and build sequence
+- Added breadboard-focused documentation and build sequence
 
 ### v0.4.0
 
 - Added perfboard and breadboard prototype guides
-- Added test sequence before soldering
 
 ### v0.3.0
 
-- Added firmware metadata
-- Added buzzer enable control
-- Added hardware test controls
-- Added alarm clear delay
-- Added improved Home Assistant dashboard
+- Added firmware metadata, buzzer control, alarm-clear delay, self-test, and dashboard improvements
 
 ### v0.2.0
 
-- Renamed project to ESPHome Boiler Monitor
-- Added GitHub Actions and issue templates
-- Improved project structure and documentation
+- Renamed the project to ESPHome Boiler Monitor
+- Added GitHub Actions and improved structure
 
 ### v0.1.0
 
-- Initial project structure
-- ESPHome firmware
-- Home Assistant automation
-- Basic BOM, wiring documentation, and OpenSCAD models
+- Initial ESPHome, Home Assistant, BOM, wiring, and OpenSCAD project
 
-## Safety and limitations
+## Contributing and security
 
-This is a hobby project and is not a certified safety device. It only observes an existing indicator LED and must not replace the boiler manufacturer's safety systems, alarms, inspections, or maintenance procedures.
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [Code of conduct](CODE_OF_CONDUCT.md)
+- [Roadmap](ROADMAP.md)
 
 ## License
 
-MIT License. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

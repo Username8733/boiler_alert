@@ -1,7 +1,7 @@
 substitutions:
   device_name: boiler-monitor
   friendly_name: Boiler Monitor
-  firmware_version: "0.8.1"
+  firmware_version: "2.0.0-rc1"
 
 esphome:
   name: ${device_name}
@@ -14,7 +14,7 @@ esphome:
     priority: -100
     then:
       # Enkel uppstartsindikering:
-      # grön LED på, röd LED kort, kort summerpip, grön LED på.
+      # green LED on, red LED briefly on, short buzzer beep, green LED on.
       - output.turn_on: green_led_output
       - delay: 250ms
       - output.turn_on: red_led_output
@@ -149,11 +149,11 @@ sensor:
     entity_category: diagnostic
 
   # DS18B20 temperaturgivare
-  # Koppling:
+  # Wiring:
   # VDD  -> 3V3
   # GND  -> GND
   # DATA -> GPIO23
-  # 4.7k mellan DATA och 3V3
+  # 4.7k between DATA and 3V3
   - platform: dallas_temp
     name: "${friendly_name} Temperature"
     id: boiler_temperature
@@ -238,7 +238,7 @@ switch:
 ########################################################
 
 binary_sensor:
-  # Rå detektering av pannans LED via fototransistor
+  # Raw optical detection of the boiler LED using the phototransistor
   - platform: template
     id: boiler_led_detected
     name: "${friendly_name} Boiler LED Detected"
@@ -264,7 +264,7 @@ binary_sensor:
                     id(last_alarm_text).publish_state("Alarm detected - time not available");
                   }
 
-  # Larmat läge. Ligger kvar tills återställning eller eventuell auto-clear.
+  # Latched alarm state. Remains active until reset or optional automatic clearing.
   - platform: template
     id: alarm_latched_sensor
     name: "${friendly_name} Alarm"
@@ -284,7 +284,7 @@ binary_sensor:
     lambda: |-
       return id(alarm_latched) && !id(alarm_muted) && id(buzzer_enabled).state;
 
-  # Fysisk tyst-knapp
+  # Physical mute button
   - platform: gpio
     id: mute_button
     name: "${friendly_name} Mute Button"
@@ -306,7 +306,7 @@ binary_sensor:
 ########################################################
 
 interval:
-  # Röd LED speglar pannans LED 1:1.
+  # The local red LED mirrors the boiler LED.
   - interval: 100ms
     then:
       - if:
@@ -319,7 +319,7 @@ interval:
           else:
             - output.turn_off: red_led_output
 
-  # Summer: piper 0.5s på / 0.5s av tills kvitterad.
+  # Buzzer: 0.5 seconds on / 0.5 seconds off until muted.
   - interval: 500ms
     then:
       - if:
@@ -342,12 +342,12 @@ interval:
             - lambda: |-
                 id(buzzer_phase) = false;
 
-  # Grön LED hålls tänd som driftindikering.
+  # The green LED remains on as a run indicator.
   - interval: 2s
     then:
       - output.turn_on: green_led_output
 
-  # Valfri automatisk återställning efter att pannlampan varit släckt.
+  # Optional automatic clearing after the boiler LED has remained off.
   # 0 sekunder = avstängt.
   - interval: 5s
     then:
