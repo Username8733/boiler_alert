@@ -1,7 +1,3 @@
-# 03 - Röd alarm-LED
+# Red Alarm LED
 
-- GPIO19 -> 330 ohm resistor.
-- Resistor andra ben -> LED långt ben / anod (+).
-- LED kort ben / katod (-) -> GND.
-
-LED lyser när GPIO19 är HIGH.
+GPIO19 -> 330 ohm -> LED anode. LED cathode -> GND.

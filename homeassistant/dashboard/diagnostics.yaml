@@ -1,24 +1,24 @@
 type: vertical-stack
 cards:
   - type: entities
-    title: Boiler Monitor - Diagnostics
+    title: Boiler Monitor Diagnostics
     entities:
-      - entity: text_sensor.boiler_monitor_firmware_version
-      - entity: text_sensor.boiler_monitor_ip_address
-      - entity: text_sensor.boiler_monitor_connected_ssid
-      - entity: text_sensor.boiler_monitor_mac_address
-      - entity: sensor.boiler_monitor_wifi_signal
-      - entity: sensor.boiler_monitor_wifi_signal_percent
-      - entity: sensor.boiler_monitor_uptime
-      - entity: sensor.boiler_monitor_led_level
-      - entity: number.boiler_monitor_led_threshold
-      - entity: binary_sensor.boiler_monitor_boiler_led_detected
-      - entity: binary_sensor.boiler_monitor_alarm
-      - entity: binary_sensor.boiler_monitor_buzzer_active
-      - entity: binary_sensor.boiler_monitor_buzzer_muted
-      - entity: switch.boiler_monitor_buzzer_enabled
-      - entity: sensor.boiler_monitor_temperature
-      - entity: text_sensor.boiler_monitor_last_alarm
-      - entity: button.boiler_monitor_run_hardware_test
-      - entity: button.boiler_monitor_test_buzzer
-      - entity: button.boiler_monitor_restart
+      - text_sensor.boiler_monitor_firmware_version
+      - text_sensor.boiler_monitor_ip_address
+      - text_sensor.boiler_monitor_connected_ssid
+      - text_sensor.boiler_monitor_mac_address
+      - sensor.boiler_monitor_wifi_signal
+      - sensor.boiler_monitor_wifi_signal_percent
+      - sensor.boiler_monitor_uptime
+      - sensor.boiler_monitor_led_level
+      - number.boiler_monitor_led_threshold
+      - binary_sensor.boiler_monitor_boiler_led_detected
+      - binary_sensor.boiler_monitor_alarm
+      - binary_sensor.boiler_monitor_buzzer_active
+      - binary_sensor.boiler_monitor_buzzer_muted
+      - switch.boiler_monitor_buzzer_enabled
+      - sensor.boiler_monitor_temperature
+      - text_sensor.boiler_monitor_last_alarm
+      - button.boiler_monitor_run_hardware_test
+      - button.boiler_monitor_test_buzzer
+      - button.boiler_monitor_restart

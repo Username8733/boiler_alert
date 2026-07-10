@@ -1,7 +1,3 @@
-# 06 - Tyst-knapp
+# Mute Button
 
-- Ena använda benet -> GPIO22.
-- Andra använda benet -> GND.
-- GPIO22 använder intern pull-up i ESPHome.
-
-Knappens pinout varierar. Kontrollera med multimeter eller använd två ben som sluts när du trycker.
+GPIO22 -> button -> GND. Firmware uses INPUT_PULLUP.

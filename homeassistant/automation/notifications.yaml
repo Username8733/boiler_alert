@@ -6,9 +6,15 @@
       entity_id: binary_sensor.boiler_monitor_alarm
       to: "on"
   action:
-    - service: notify.mobile_app_DIN_TELEFON
+    - service: notify.mobile_app_YOUR_PHONE
       data:
-        title: "Pannlarm"
+        title: "Boiler alarm"
         message: >
-          Värmepannans röda larmlampa är aktiv.
-          Senaste larm: {{ states('text_sensor.boiler_monitor_last_alarm') }}
+          The boiler's red alarm LED is active.
+          Last alarm: {{ states('text_sensor.boiler_monitor_last_alarm') }}
+    - service: persistent_notification.create
+      data:
+        title: "Boiler alarm"
+        message: >
+          Boiler Monitor detected the boiler's red alarm LED.
+          Last alarm: {{ states('text_sensor.boiler_monitor_last_alarm') }}

@@ -1,5 +1,3 @@
-# 04 - Grön status-LED
+# Green Status LED
 
-- GPIO21 -> 330 ohm resistor.
-- Resistor andra ben -> LED långt ben / anod (+).
-- LED kort ben / katod (-) -> GND.
+GPIO21 -> 330 ohm -> LED anode. LED cathode -> GND.

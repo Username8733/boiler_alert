@@ -1,14 +1,10 @@
-# Kontrollista före strömsättning
+# Pre-Power Checklist
 
-Bocka av innan du ansluter USB.
-
-- [ ] 5V går bara till +5V-skenan och summer +
-- [ ] GND är gemensam för hela kretsen
-- [ ] GPIO34 är bara kopplad till sensor/1M ohm, inte till 5V
-- [ ] Röd LED har 330 ohm i serie
-- [ ] Grön LED har 330 ohm i serie
-- [ ] 2N7000 Source går till GND
-- [ ] 2N7000 Drain går till summer -
-- [ ] 2N7000 Gate går via 220 ohm till IO18
-- [ ] 100k ohm sitter mellan Gate och GND
-- [ ] Tyst-knappen går mellan IO22 och GND
+- [ ] +5V is only connected where required
+- [ ] All grounds are common
+- [ ] GPIO34 is never connected to 5V
+- [ ] Both LEDs have 330 ohm resistors
+- [ ] 2N7000 pinout has been verified
+- [ ] Gate has 220 ohm series and 100 kohm pulldown
+- [ ] Buzzer polarity is correct
+- [ ] DS18B20 DATA has a 4.7 kohm pull-up to 3V3

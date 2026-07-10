@@ -1,6 +1,16 @@
-Qty,Part,Value,Notes
-1,DS18B20,1-wire,Temperature
-1,Resistor,4.7k,DS18B20 pull-up
-1,ESP32 D1 R32 / ESP32 UNO,,Controller
-1,Phototransistor,BPW40/BPW77,Sensor
-1,2N7000,,Buzzer driver
+Qty,Reference,Part,Value / Type,Purpose
+1,U1,ESP32 D1 R32 / ESP32 UNO,,Controller
+1,Q2,Phototransistor,BPW40/BPW77 or similar,Optical LED sensor
+1,Q1,N-channel MOSFET,2N7000,Buzzer low-side driver
+1,B1,Active buzzer,5 V,Local audible alarm
+1,LED1,Red LED,5 mm,Mirrors boiler alarm LED
+1,LED2,Green LED,5 mm,Run/status indication
+1,SW1,Momentary pushbutton,Normally open,Mute/acknowledge
+2,R_LED,Resistor,330 ohm,LED current limiting
+1,R_GATE,Resistor,220 ohm,MOSFET gate resistor
+1,R_PD,Resistor,100 kohm,MOSFET gate pulldown
+1,R_SENSOR,Resistor,1 Mohm,Phototransistor bias
+1,T1,DS18B20,1-Wire,Temperature sensor
+1,R_TEMP,Resistor,4.7 kohm,DS18B20 pull-up
+1,C1,Capacitor,100 nF,Optional sensor filtering
+1,BOARD,Breadboard/perfboard,2.54 mm,Prototype assembly

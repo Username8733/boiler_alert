@@ -1,21 +1,19 @@
-# BOM
+# Bill of Materials
 
-| Qty | Part | Value / Type | Notes | Preferred store/search |
+| Qty | Ref | Part | Value / Type | Purpose |
 |---:|---|---|---|---|
-| 1 | ESP32 DevKit | ESP32-WROOM-32 | ESPHome controller | Electrokit: ESP32 UNO / ESP32 DevKit |
-| 1 | Phototransistor | BPW40 or BPW77 | Optical sensor in tube | Electrokit if available, otherwise Elfa/Mouser |
-| 1 | MOSFET | 2N7000 | Buzzer low-side switch | Electrokit: 2N7000 |
-| 1 | Active buzzer | 5 V active buzzer | Driven via 2N7000 | Electrokit: aktiv summer 5V |
-| 1 | LED | 5 mm red | Mirrors boiler LED | Electrokit |
-| 1 | LED | 5 mm green | Power/status | Electrokit |
-| 2 | Resistor | 330 Ω | LED current limit | Electrokit |
-| 1 | Resistor | 220 Ω | MOSFET gate resistor | Electrokit |
-| 1 | Resistor | 100 kΩ | MOSFET gate pulldown | Electrokit |
-| 1 | Resistor | 1 MΩ | Phototransistor resistor | Electrokit |
-| 1 | Capacitor | 100 nF ceramic | Optional sensor/input noise filtering | Electrokit |
-| 1 | Pushbutton | NO momentary | Mute button | Electrokit |
-| 1 | Breadboard | Full-size recommended | Prototype before soldering | Electrokit |
-| 1 | Perfboard | 2.54 mm | Prototype board | Electrokit |
-| 1 | Enclosure | ~100 x 60 x 30 mm | 3D print or ABS box | 3D print / Electrokit |
-| 1 | Cable | 2-wire thin cable | Sensor probe cable | Electrokit |
-| 1 | Heat shrink | Black 6-8 mm | Sensor tube/light shield | Electrokit |
+| 1 | U1 | ESP32 D1 R32 / ESP32 UNO |  | Controller |
+| 1 | Q2 | Phototransistor | BPW40/BPW77 or similar | Optical LED sensor |
+| 1 | Q1 | N-channel MOSFET | 2N7000 | Buzzer low-side driver |
+| 1 | B1 | Active buzzer | 5 V | Local audible alarm |
+| 1 | LED1 | Red LED | 5 mm | Mirrors boiler alarm LED |
+| 1 | LED2 | Green LED | 5 mm | Run/status indication |
+| 1 | SW1 | Momentary pushbutton | Normally open | Mute/acknowledge |
+| 2 | R_LED | Resistor | 330 ohm | LED current limiting |
+| 1 | R_GATE | Resistor | 220 ohm | MOSFET gate resistor |
+| 1 | R_PD | Resistor | 100 kohm | MOSFET gate pulldown |
+| 1 | R_SENSOR | Resistor | 1 Mohm | Phototransistor bias |
+| 1 | T1 | DS18B20 | 1-Wire | Temperature sensor |
+| 1 | R_TEMP | Resistor | 4.7 kohm | DS18B20 pull-up |
+| 1 | C1 | Capacitor | 100 nF | Optional sensor filtering |
+| 1 | BOARD | Breadboard/perfboard | 2.54 mm | Prototype assembly |

@@ -1,10 +1,3 @@
-# 02 - Fototransistor-sensor
+# Phototransistor Sensor
 
-Koppling efter funktion:
-
-- Collector `C` -> noden mellan 1 MΩ och GPIO34.
-- Base `B` -> lämnas oansluten om komponenten har base-ben.
-- Emitter `E` -> GND.
-- 1 MΩ -> mellan +3.3V och GPIO34/sensornoden.
-
-Kontrollera databladet för fysisk benordning på din fototransistor.
+Collector -> GPIO34 sensor node. Emitter -> GND. Use 1 Mohm from 3V3 to the GPIO34 node. Verify your exact part's pinout.
